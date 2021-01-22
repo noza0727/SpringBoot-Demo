@@ -31,6 +31,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()// authorize request
                 .antMatchers("/", "index", "/css/*", "/js/*")  // permit entrance to main page
                 .permitAll()
+                .antMatchers("/api/**").hasRole(STUDENT.name()) //only student can access, no admin
+                                                                        //though student can access another student yet
                 .anyRequest()     //any request must be authenticated
                 .authenticated()  // user must specify username and password
                 .and()
@@ -52,7 +54,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .build();
 
         return new InMemoryUserDetailsManager(
-                user3
+                user3,
+                adminUser
         );
     }
 }
