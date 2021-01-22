@@ -8,7 +8,7 @@ import static com.example.demo.security.ApplicationUserPermission.*;
 
 public enum ApplicationEnumRole {
     STUDENT(Sets.newHashSet()),  // no permission for students so empty
-    ADMIN(Sets.newHashSet(COURSE_READ,COURSE_WRITE,STUDENT_READ,STUDENT_READ)); //all permissions for admin
+    ADMIN(Sets.newHashSet(COURSE_READ,COURSE_WRITE,STUDENT_READ,STUDENT_WRITE)); //all permissions for admin
 
     private final Set<ApplicationUserPermission> permissions;
 
