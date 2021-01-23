@@ -17,11 +17,11 @@ public class StudentController {
 
     @GetMapping(path = "{studentId}")
     public Student getStudent(@PathVariable("studentId") Integer studentId){
-        return students
-                .stream()
+        return students.stream()
                 .filter(student -> studentId.equals(student.getStudentId()))
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException("Student" + studentId + "does not exit"));
-
+                .orElseThrow(() -> new IllegalStateException(
+                        "Student " + studentId + " does not exists"
+                ));
     }
 }

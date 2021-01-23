@@ -1,5 +1,7 @@
 package com.example.demo.security;
 
+import java.util.Set;
+
 public enum ApplicationUserPermission {
     STUDENT_READ("student:read"),
     STUDENT_WRITE("student:write"),
@@ -15,4 +17,6 @@ public enum ApplicationUserPermission {
     public String getPermission() {
         return permission;
     }
+
+
 }
